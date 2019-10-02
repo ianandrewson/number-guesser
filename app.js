@@ -20,25 +20,44 @@ submission.addEventListener('click', function() {
     previousGuessField.textContent = `Your guess was ${userGuess}`;
     let comparisonResult = compareNumbers(userGuess, targetNumber);
     if (comparisonResult < 0) {
-        gameLives--;
-        lowHighField.style.cssText = 'background-color: orange;';
-        lowHighField.textContent = 'Your guess was too low';
-        lifeField.textContent = `Guesses Remaining: ${gameLives}`;
+        updateLives();
+        updateTooLow();
     } else if (comparisonResult > 0) {
-        gameLives--;
-        lowHighField.style.cssText = 'background-color: yellow;';
-        lowHighField.textContent = 'Your guess was too high';
-        lifeField.textContent = `Guesses Remaining: ${gameLives}`;
+        updateLives();
+        updateTooHigh();
     } else if (comparisonResult === 0) {
-        lowHighField.style.cssText = 'background-color: green;';
-        lowHighField.textContent = 'CORRECT!';
-        resultField.textContent = 'Congratulations! You won!';
-        userInput.style.cssText = 'visibility: hidden;';
-        submission.style.cssText = 'visibility: hidden;';
+        youWin();
     }
     if (gameLives === 0){
-        resultField.textContent = 'You have run out of lives, sorry! Please play again.';
-        userInput.style.cssText = 'visibility: hidden;';
-        submission.style.cssText = 'visibility: hidden;';
+        youLose();
     }
 });
+
+const updateLives = () => {
+    gameLives--;
+    lifeField.textContent = `Guesses Remaining: ${gameLives}`;
+};
+
+const updateTooLow = () => {
+    lowHighField.style.cssText = 'background-color: orange;';
+    lowHighField.textContent = 'Your guess was too low';
+};
+
+const updateTooHigh = () => {
+    lowHighField.style.cssText = 'background-color: yellow;';
+    lowHighField.textContent = 'Your guess was too high';
+};
+
+const youLose = () => {
+    resultField.textContent = 'You have run out of lives, sorry! Please play again.';
+    userInput.style.cssText = 'visibility: hidden;';
+    submission.style.cssText = 'visibility: hidden;';
+};
+
+const youWin = () => {
+    lowHighField.style.cssText = 'background-color: green;';
+    lowHighField.textContent = 'CORRECT!';
+    resultField.textContent = 'Congratulations! You won!';
+    userInput.style.cssText = 'visibility: hidden;';
+    submission.style.cssText = 'visibility: hidden;';
+}
