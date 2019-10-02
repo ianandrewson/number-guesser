@@ -30,7 +30,7 @@ test('should return -1 if number guessed number is too low', function(assert) {
     assert.equal(result, -1);
 });
 
-test('should return 0 if numbers are identical', function(assert) {
+test('should return 1 if guess is too high', function(assert) {
     //Arrange
     // Set up your parameters and expectations
     const guess = 12;

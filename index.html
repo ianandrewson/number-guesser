@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title>Number Guessing Game</title>
+    
 </head>
 
 <body>
@@ -14,13 +15,18 @@
         <h2>Rules</h2>
             <p>rules go here</p>
         <h2>The game</h2>
-            <input class="guessInput" type="text">
-            <button>Submit guess</button>
-            <p>Guesses remaining: </p>
-            <p>Your guess was: </p>
-            <p>This guess was too high/low</p>
+            <input id="guessInput" type="number">
+            <button id="submit-button">Submit guess</button>
+            <br>
+            <span id="remaining">Guesses remaining: </span>
+            <br>
+            <span id="last-guess">Your guess was: </span>
+            <br>
+            <span id="low-high">This guess was too high/low</span>
         <h2>Result</h2>
-    <script src="app.js"></script>
+            <span id="result"></span>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="compare-numbers.js"></script>
 </body>
 
 </html>
