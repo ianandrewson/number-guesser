@@ -60,4 +60,4 @@ const youWin = () => {
     resultField.textContent = 'Congratulations! You won!';
     userInput.style.cssText = 'visibility: hidden;';
     submission.style.cssText = 'visibility: hidden;';
-}
+};
