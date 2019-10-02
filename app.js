@@ -10,7 +10,7 @@ const submission = document.getElementById('submit-button');
 
 //Set Initial State
 const targetNumber = Math.floor(Math.random() * 20);
-let gameLives = 5;
+let gameLives = 4;
 lifeField.textContent = `Guesses Remaining: ${gameLives}`;
 
 
@@ -32,5 +32,13 @@ submission.addEventListener('click', function() {
     } else if (comparisonResult === 0) {
         lowHighField.style.cssText = 'background-color: green;';
         lowHighField.textContent = 'CORRECT!';
+        resultField.textContent = 'Congratulations! You won!';
+        userInput.style.cssText = 'visibility: hidden;';
+        submission.style.cssText = 'visibility: hidden;';
+    }
+    if (gameLives === 0){
+        resultField.textContent = 'You have run out of lives, sorry! Please play again.';
+        userInput.style.cssText = 'visibility: hidden;';
+        submission.style.cssText = 'visibility: hidden;';
     }
 });
