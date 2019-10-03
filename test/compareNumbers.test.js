@@ -43,3 +43,22 @@ test('should return 1 if guess is too high', function(assert) {
     assert.equal(result, 1);
 });
 
+test('should throw error if input is invalid', function(assert) {
+    //Arrange
+    // Set up your parameters and expectations
+    const guess = 30;
+    const correctNumber = 3;
+    //Act 
+    // Call the function you're testing and set the result to a const
+    compareNumbers(guess, correctNumber);
+    //Assert
+    // Make assertions about what is expected valid result
+
+    assert.throws(
+        function() {
+            throw 'error';
+        },
+        "throws with just a message, not using the 'expected' argument"
+    );
+    //assert.equal(result, Error('Invalid input. Input must be a number between 1 and 20'));  
+});
