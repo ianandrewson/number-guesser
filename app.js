@@ -17,8 +17,17 @@ lifeField.textContent = `Guesses Remaining: ${gameLives}`;
 //Set Event Handlers
 submission.addEventListener('click', function() {  
     let userGuess = Number(userInput.value);
-    previousGuessField.textContent = `Your guess was ${userGuess}`;
+    updatePreviousGuess(userGuess);
     let comparisonResult = compareNumbers(userGuess, targetNumber);
+    game(comparisonResult);
+    
+});
+
+const updatePreviousGuess = userGuess => {
+    previousGuessField.textContent = `Your guess was ${userGuess}`;
+};
+
+const game = comparisonResult => {
     if (comparisonResult < 0) {
         updateLives();
         updateTooLow();
@@ -31,7 +40,7 @@ submission.addEventListener('click', function() {
     if (gameLives === 0){
         youLose();
     }
-});
+};
 
 const updateLives = () => {
     gameLives--;
