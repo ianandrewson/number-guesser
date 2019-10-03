@@ -6,12 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Number Guessing Game</title>
+    
 </head>
 
 <body>
-
-    <script src="app.js"></script>
+    <h1>Number Guessing Game</h1>
+        <h2 class="rule-area">Rules</h2>
+            <p class="rule-area" id="rules">This is a number guessing game! The goal is to guess the hidden number in four tries or less. Input a number, and you will be told if your guess was too high or too low. Revise your guess and try again!</p>
+        <div class="game-grid-container">
+            <h2 class="game-area" id="game-label">The game</h2>
+                <input class="game-area" id="guessInput" type="number">
+                <button class="game-area"id="submit-button">Submit guess</button>
+                <br>
+                <span class="game-area" id="remaining">Guesses remaining: </span>
+                <br>
+                <span class="game-area" id="last-guess">Your guess was: </span>
+                <br>
+                <span class="game-area" id="low-high">This guess was too high/low</span>
+        </div>
+        <h2 class="result-area">Result</h2>
+            <span class="result-area" id="result"></span>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="compare-numbers.js"></script>
 </body>
 
 </html>
